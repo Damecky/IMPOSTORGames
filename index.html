@@ -267,8 +267,7 @@ function prepareVoting(players) {
       btn.onclick = () => currentVote = p;
       voteButtons.appendChild(btn);
     }
-  });
-}
+
 
 // Obsługa oddania głosu
 document.getElementById("btnSubmitVote").addEventListener("click", async () => {
@@ -295,6 +294,50 @@ async function handleVoting(votes) {
     await roomRef.child("votes").remove();
   }
 }
+<style>
+/* Dodaj do istniejącego CSS */
+
+.cardRole {
+  margin: 20px auto;
+  padding: 25px;
+  background: linear-gradient(145deg, #111622, #1a1f2a);
+  border: 2px solid #00d26a;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 350px;
+  color: #00d26a;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0,210,106,0.7);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { box-shadow: 0 0 15px rgba(0,210,106,0.3); }
+  to { box-shadow: 0 0 25px rgba(0,210,106,0.8); }
+}
+
+/* Animacja przycisków głosowania */
+.voteButton {
+  display: block;
+  margin: 10px auto;
+  width: 60%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 1px solid #00d26a;
+  background: #111622;
+  color: #00d26a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.voteButton:hover {
+  transform: scale(1.05);
+  background: #00d26a;
+  color: black;
+  box-shadow: 0 0 15px #00d26a;
+}
+</style>
 
 document.getElementById("btnCreate").addEventListener("click", createRoom);
 document.getElementById("btnJoin").addEventListener("click", joinRoom);
